@@ -1,5 +1,7 @@
 package square
 
+import "fmt"
+
 type Point struct {
 	x, y int
 }
@@ -9,14 +11,18 @@ type Square struct {
 	a     uint
 }
 
-func (receiver) End() Point {
-	// implement me
+func (s *Square) End() Point {
+	p := s.start
+	fmt.Println(&p == &s.start)
+	p.x = p.x + int(s.a)
+	p.y = p.y + int(s.a)
+	return p
 }
 
-func (receiver) Area() uint {
-	// implement me
+func (s *Square) Area() uint {
+	return s.a * s.a
 }
 
-func (receiver) Perimeter() uint {
-	// implement me
+func (s *Square) Perimeter() uint {
+	return s.a * 4
 }
